@@ -8,7 +8,10 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="lib/moment/moment.min.js"></script>
     <script src="assets/app.js"></script>
+    
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
 
@@ -52,8 +55,8 @@
         <form>
             <div class="form-group">
             <div class="form-group">
-                <label for="exampleInputPassword1">Destination</label>
-                <input type="text" class="form-control" id="trainName" placeholder="Destination">
+                <label for="exampleInputPassword1">Train Name</label>
+                <input type="text" class="form-control" id="trainName" placeholder="Name of Train">
             </div>
             </div>
             <div class="form-group">
@@ -61,13 +64,14 @@
                 <input type="text" class="form-control" id="destinationInfo" placeholder="Destination">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">First Train Time</label>
-                <input type="text" class="form-control" id="firstTrain" placeholder="Train Time">
+              <label for="exampleInputPassword1">Frequency (min)</label>
+              <input type="text" class="form-control" id="frequencyMin" placeholder="Frequency">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequencyMin" placeholder="Frequency">
+                <label for="exampleInputPassword1">First Train Time (HH/mm - Military Time)</label>
+                <input type="text" class="form-control" id="firstTrain" placeholder="Train Time">
             </div>
+            
             
             <button type="button" class="btn btn-primary" id='submitButton'>Submit</button>
         </form>

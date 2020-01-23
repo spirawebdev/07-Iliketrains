@@ -14,6 +14,11 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
+  //moment.js variables
+ 
+
+  var currentTime = moment().format('LT');
+  console.log(currentTime);
 
 
  // firebase.database().ref().child('text');
@@ -31,8 +36,15 @@
     var destinationInfo = $('#destinationInfo').val();
     var firstTrain = $('#firstTrain').val();
     var frequencyMin = $('#frequencyMin').val();
+
+
+    // Do extra calculations
+
+     
+  
+    
     // Display Info inside table
-    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' );
+    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>');
     
 
 
