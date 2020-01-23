@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=spotify, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     <script src="assets/app.js"></script>
@@ -30,30 +30,20 @@
         <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Frequency (min)</th>
+                <th scope="col">Next Arrival</th>
+                <th scope="col">Minutes Away</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">Saber</th>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+                <td>tomorrow</td>
+                <td>255</td>
               </tr>
             </tbody>
           </table>
@@ -61,24 +51,25 @@
 
         <form>
             <div class="form-group">
-                <label for="exampleInputEmail1">Train Name</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Train Name">
-                <small id="text" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Destination</label>
+                <input type="text" class="form-control" id="trainName" placeholder="Destination">
+            </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Destination</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Destination">
+                <input type="text" class="form-control" id="destinationInfo" placeholder="Destination">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">First Train Time</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Train Time">
+                <input type="text" class="form-control" id="firstTrain" placeholder="Train Time">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Frequency (min)</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Frequency">
+                <input type="text" class="form-control" id="frequencyMin" placeholder="Frequency">
             </div>
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary" id='submitButton'>Submit</button>
         </form>
     </div>
 </body>

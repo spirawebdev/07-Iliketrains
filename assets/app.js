@@ -16,6 +16,47 @@
   
 
 
+ // firebase.database().ref().child('text');
+  // Variable For Entries
+  
+
+
+
+
+  // Create an onclick function for the submit button
+
+  $('#submitButton').on('click', function() {
+    // Assign Variables to every Input
+    var trainName = $('#trainName').val();
+    var destinationInfo = $('#destinationInfo').val();
+    var firstTrain = $('#firstTrain').val();
+    var frequencyMin = $('#frequencyMin').val();
+    // Display Info inside table
+    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' );
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  });
 
 
 
