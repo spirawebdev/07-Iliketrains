@@ -17,7 +17,7 @@
   //moment.js variables
  
 
-  var currentTime = moment().format('LT');
+  var currentTime = moment().format('HH:mm');
   console.log(currentTime);
 
 
@@ -40,11 +40,22 @@
 
     // Do extra calculations
 
+    // start time and end time
+    var mins = moment.utc(moment(firstTrain, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("HH:mm")
+    console.log(currentTime)
+    console.log(firstTrain)
+    console.log(mins)
      
+    // Trying to find Remaining Time
+    var timeRemaining = mins % frequencyMin;
+    console.log("This is the time Remaining after mins/freq " + timeRemaining)
+    // Attempting to locate A Frequency
+    var trainTime = mins - timeRemaining;
+    console.log("This is the train time " + trainTime)
   
     
     // Display Info inside table
-    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>');
+    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>' + '<td>'+ firstTrain + '</td>' + '<td>'+ trainTime + '</td>');
     
 
 
