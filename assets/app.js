@@ -11,7 +11,7 @@
     messagingSenderId: "1082815632888",
     appId: "1:1082815632888:web:643789fde8200fd30e320d"
   };
-  // Initialize Firebase
+  //  Firebase
   firebase.initializeApp(firebaseConfig);
   
   //moment.js variables
@@ -23,8 +23,6 @@
 
  // firebase.database().ref().child('text');
   // Variable For Entries
-  
-
 
 
 
@@ -40,8 +38,11 @@
 
     // Do extra calculations
 
+    //first time
+    var firstPerfectTime = moment(firstTrain, "HH:mm");
+
     // start time and end time
-    var mins = moment.utc(moment(firstTrain, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("HH:mm")
+    var mins = moment.utc(moment(firstPerfectTime, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("HH:mm")
     console.log(currentTime)
     console.log(firstTrain)
     console.log(mins)
@@ -50,13 +51,25 @@
     var timeRemaining = mins % frequencyMin;
     console.log("This is the time Remaining after mins/freq " + timeRemaining)
     // Attempting to locate A Frequency
-    var trainTime = mins - timeRemaining;
+    var trainTime = timeRemaining - mins;
     console.log("This is the train time " + trainTime)
   
     
     // Display Info inside table
-    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>' + '<td>'+ firstTrain + '</td>' + '<td>'+ trainTime + '</td>');
-    
+    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>' + '<td>'+ mins + '</td>' + '<td>'+ trainTime + '</td>');
+     
+
+
+    // Upload to Firebase
+   // function writeUserData(totalTrainName, totalDestinationInfo, totalFrequencyMin, totalMins, ) {
+      //firebase.database().ref('/hey').set({
+      //  totalTrainName: trainName,
+      //  totalDestinationInfo: destinationInfo,
+      //  totalFrequencyMin: frequencyMin,
+      //  totalMins: mins,
+      //  totalTrainTime: trainTime,
+    // });
+  //  }
 
 
 
