@@ -13,12 +13,16 @@
   };
   //  Firebase
   firebase.initializeApp(firebaseConfig);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+  console.log(database);
   
   //moment.js variables
  
 
   var currentTime = moment().format('HH:mm');
-  console.log(currentTime);
+  
 
 
  // firebase.database().ref().child('text');
@@ -43,70 +47,37 @@
 
     // start time and end time
     var mins = moment.utc(moment(firstPerfectTime, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("HH:mm")
-    console.log(currentTime)
-    console.log(firstTrain)
-    console.log(mins)
+    var minsY = moment.utc(moment(firstPerfectTime, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("m")
+    console.log("This is current time " + currentTime)
+    console.log("This is first train time " + firstTrain)
+    console.log("This is mins " + mins)
      
     // Trying to find Remaining Time
-    var timeRemaining = mins % frequencyMin;
+    var timeRemaining = minsY % frequencyMin ;
     console.log("This is the time Remaining after mins/freq " + timeRemaining)
     // Attempting to locate A Frequency
-    var trainTime = timeRemaining - mins;
+    var trainTime = timeRemaining - minsY;
     console.log("This is the train time " + trainTime)
   
+    // Oncoming
+    var finalTrain = moment().add(trainTime, "minutes");
+    var oncoming = moment(finalTrain).format("hh:mm");
     
-    // Display Info inside table
-    $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>' + '<td>'+ mins + '</td>' + '<td>'+ trainTime + '</td>');
+    
+      firebase.database().ref().set({
+        tn: trainName,
+        di: destinationInfo,
+        fm : frequencyMin,
+        oc: oncoming,
+        tt: trainTime
+      });
+    
+     //Display Info inside table
+     $('tbody').append().html('<th ' + 'scope="row">' + trainName + '</th>' + '<td>'+ destinationInfo + '</td>' + '<td>'+ frequencyMin + '</td>' + '<td>'+ oncoming + '</td>' + '<td>'+ trainTime + '</td>');
      
+    
 
-
-    // Upload to Firebase
-   // function writeUserData(totalTrainName, totalDestinationInfo, totalFrequencyMin, totalMins, ) {
-      //firebase.database().ref('/hey').set({
-      //  totalTrainName: trainName,
-      //  totalDestinationInfo: destinationInfo,
-      //  totalFrequencyMin: frequencyMin,
-      //  totalMins: mins,
-      //  totalTrainTime: trainTime,
-    // });
-  //  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
  });
